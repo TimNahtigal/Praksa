@@ -1,4 +1,7 @@
 CREATE DATABASE `praksa` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+
+USE `praksa`;
+
 CREATE TABLE `uservisits` (
   `idUserVisits` int(11) NOT NULL AUTO_INCREMENT,
   `timestamp` timestamp NULL DEFAULT NULL,
