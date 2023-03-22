@@ -13,7 +13,7 @@ wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
 sudo apt install ./mysql-apt-config_0.8.24-1_all.deb -y
 sudo apt update
 sudo apt update
-sudo apt install mysql-server
+sudo apt install mysql-server -y
 
 
 sudo mysql -u root <<-EOF
@@ -23,7 +23,7 @@ DELETE FROM mysql.user WHERE User='';
 DELETE FROM mysql.db WHERE Db='test' OR Db='test_%';
 FLUSH PRIVILEGES;
 
-CREATE DATABASE `praksa` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE `praksa`;
 
 USE `praksa`;
 
