@@ -6,7 +6,7 @@ sudo apt-get install wget apt-transport-https -y
 wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
-sudo apt-get install dotnet-runtime-5.0 -y
+sudo apt-get install dotnet-runtime-6.0 -y
 
 
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
