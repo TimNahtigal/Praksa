@@ -21,7 +21,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '';
 DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
 DELETE FROM mysql.user WHERE User='';
 DELETE FROM mysql.db WHERE Db='test' OR Db='test_%';
-FLUSH PRIVILEGES;
+
 
 CREATE DATABASE `praksa`;
 
@@ -36,6 +36,7 @@ CREATE TABLE `uservisits` (
   PRIMARY KEY (`idUserVisits`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+FLUSH PRIVILEGES;
 EOF
 
 cat >> /etc/systemd/system/PraksaStreznik.service << EOF
