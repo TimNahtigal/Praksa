@@ -16,28 +16,30 @@ sudo apt update
 sudo apt install mysql-server -y
 
 
-sudo mysql -u root <<-EOF
-ALTER USER 'root'@'localhost' IDENTIFIED BY '';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-DELETE FROM mysql.user WHERE User='';
-DELETE FROM mysql.db WHERE Db='test' OR Db='test_%';
 
+mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '';"
+# Kill the anonymous users
+mysql -e "DROP USER ''@'localhost'"
+# Because our hostname varies we'll use some Bash magic here.
+mysql -e "DROP USER ''@'$(hostname)'"
+# Kill off the demo database
+mysql -e "DROP DATABASE test"
+# Make our changes take effect
+mysql -e "FLUSH PRIVILEGES"
 
-CREATE DATABASE `praksa`;
+mysql -e "CREATE DATABASE `praksa`;"
 
-USE `praksa`;
-
-CREATE TABLE `uservisits` (
+mysql -e "CREATE TABLE praksa.`uservisits` (
   `idUserVisits` int(11) NOT NULL AUTO_INCREMENT,
   `timestamp` timestamp NULL DEFAULT NULL,
   `ip` varchar(20) DEFAULT NULL,
   `url` varchar(100) DEFAULT NULL,
   `domain` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idUserVisits`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;"
 
-FLUSH PRIVILEGES;
-EOF
+mysql -e "FLUSH PRIVILEGES;"
+
 
 cat >> /etc/systemd/system/PraksaStreznik.service << EOF
 [Unit]
