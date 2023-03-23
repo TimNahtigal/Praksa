@@ -68,7 +68,3 @@ echo "Zazeni: systemctl start PraksaStreznik.service"
 echo "Oglej: systemctl status PraksaStreznik.service"
 echo "Ugasni: systemctl stop PraksaStreznik.service"
 echo "Boot: systemctl enable/disable PraksaStreznik.service"
-
-
-
-

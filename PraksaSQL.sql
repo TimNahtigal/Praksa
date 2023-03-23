@@ -11,3 +11,6 @@ CREATE TABLE `uservisits` (
   PRIMARY KEY (`idUserVisits`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE USER "prog"@"localhost" IDENTIFIED BY "pass";
+GRANT ALL PRIVILEGES ON * . * TO "prog"@"localhost";
+FLUSH PRIVILEGES

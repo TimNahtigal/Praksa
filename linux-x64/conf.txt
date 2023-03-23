@@ -1,1 +1,1 @@
-Server=localhost;User ID=root;Password=;Database=praksa
+Server=localhost;User ID=prog;Password=pass;Database=praksa
