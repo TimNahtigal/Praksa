@@ -62,9 +62,23 @@ EOF
 #sudo cp PraksaStreznik.service /etc/systemd/system/PraksaStreznik.service
 sudo systemctl daemon-reload
 
+sudo apt install ca-certificates apt-transport-https 
+sudo apt-get install mysql-server
+
+wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
+sudo echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list
+
+sudo apt update
+sudo apt install php php-mysql libapache2-mod-php
+
 echo "Čisto zgulfano"
 echo ""
 echo "Zazeni: systemctl start PraksaStreznik.service"
 echo "Oglej: systemctl status PraksaStreznik.service"
 echo "Ugasni: systemctl stop PraksaStreznik.service"
 echo "Boot: systemctl enable/disable PraksaStreznik.service"
+echo "-----"
+echo "PHP v /var/www/html/info.php "
+
+
+
