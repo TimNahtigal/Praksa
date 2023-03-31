@@ -32,25 +32,29 @@
             $sql = "SELECT * FROM uservisits WHERE ip='$_POST[ip]'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td> $result[idUserVisits] </td>";
-            echo "<td> $result[timestamp]  </td>";
-            echo "<td> $result[url]  </td>";
-            echo "<td> $result[domain]  </td>";
+            echo "<td> $row[idUserVisits] </td>";
+            echo "<td> $row[timestamp]  </td>";
+            echo "<td> $row[url]  </td>";
+            echo "<td> $row[domain]  </td>";
             echo "</tr>";
             }
+        }
 
         }else{
             $sql = "SELECT * FROM uservisits";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td> $result[idUserVisits] </td>";
-                echo "<td> $result[timestamp]  </td>";
-                echo "<td> $result[url]  </td>";
-                echo "<td> $result[domain]  </td>";
+                echo "<td> $row[idUserVisits] </td>";
+                echo "<td> $row[timestamp]  </td>";
+                echo "<td> $row[url]  </td>";
+                echo "<td> $row[domain]  </td>";
                 echo "</tr>";
                 }
+            }
         }
         $conn->close();
         ?>
