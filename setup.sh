@@ -12,7 +12,6 @@ sudo apt-get install dotnet-runtime-6.0 -y
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
 sudo apt install ./mysql-apt-config_0.8.24-1_all.deb -y
 sudo apt update
-sudo apt update
 sudo apt install mysql-server -y
 
 
