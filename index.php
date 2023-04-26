@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        td{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     
@@ -14,14 +19,14 @@
     </form>
     <hr>
 
-    <table>
-        <th>
+    <table style="border:1px solid black; border-collapse:collapse;">
+        <tr>
             <td>ID</td>
             <td>TIMESTAMP</td>
             <td>IP</td>
             <td>DOMENA</td>
             <td>URL</td>
-        </th>
+        </tr>
 
         <?php
 
@@ -35,9 +40,10 @@
                 while($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td> $row[idUserVisits] </td>";
-            echo "<td> $row[timestamp]  </td>";
-            echo "<td> $row[url]  </td>";
+            echo "<td> $row[timestamp] </td>";
+            echo "<td> $row[ip]</td>";
             echo "<td> $row[domain]  </td>";
+            echo "<td> $row[url]  </td>";
             echo "</tr>";
             }
         }
@@ -50,6 +56,7 @@
                 echo "<tr>";
                 echo "<td> $row[idUserVisits] </td>";
                 echo "<td> $row[timestamp]  </td>";
+                echo "<td> $row[ip]</td>";
                 echo "<td> $row[url]  </td>";
                 echo "<td> $row[domain]  </td>";
                 echo "</tr>";
@@ -60,8 +67,8 @@
         ?>
 
     </table>
-
-
-
 </body>
 </html>
+
+
+
